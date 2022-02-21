@@ -1,0 +1,20 @@
+{
+   "policy" : {
+      "applicationLanguage" : "utf-8",
+      "caseInsensitive" : false,
+      "description" : "Rapid Deployment Policy",
+      "enablePassiveMode" : false,
+      "enforcementMode" : "blocking",
+      "fullPath" : "/Common/asmpolicy_shop_f5lab_com",
+      "name" : "asmpolicy_shop_f5lab_com",
+      "protocolIndependent" : false,
+      "signature-settings" : {
+         "signatureStaging" : false
+      },
+      "softwareVersion" : "16.1.0",
+      "template" : {
+         "name" : "POLICY_TEMPLATE_RAPID_DEPLOYMENT"
+      },
+      "type" : "security"
+   }
+}

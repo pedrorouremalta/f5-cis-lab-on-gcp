@@ -1,0 +1,53 @@
+apiVersion: "cis.f5.com/v1"
+kind: VirtualServer
+metadata:
+   name: apps-virtual-server
+   labels:
+     f5cr: "true"
+spec:
+   virtualServerName: "vs_shop-f5lab-com"
+   virtualServerAddress: "X.X.X.X"
+   host: "shop.f5lab.com"
+   tlsProfileName: shop-tlsprofile
+   httpTraffic: redirect
+   pools:
+   - path: /payment
+     service: payment-svc
+     servicePort: 80
+     monitor:
+       type: "http"
+       send: "GET /\r\n"
+       recv: "payment"
+       interval: 5
+   - path: /order
+     service: order-svc
+     servicePort: 80
+     monitor:
+       type: "http"
+       send: "GET /\r\n"
+       recv: "order"
+       interval: 5
+   - path: /shipping
+     service: shipping-svc
+     servicePort: 80
+     monitor:
+       type: "http"
+       send: "GET /\r\n"
+       recv: "shipping"
+       interval: 5
+   - path: /product
+     service: product-svc
+     servicePort: 80
+     monitor:
+       type: "http"
+       send: "GET /\r\n"
+       recv: "product"
+       interval: 5
+   - path: /user
+     service: user-svc
+     servicePort: 80
+     monitor:
+       type: "http"
+       send: "GET /\r\n"
+       recv: "user"
+       interval: 5
